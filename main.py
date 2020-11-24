@@ -3,13 +3,16 @@ import unicode_string_contain_check as uscc
 import sys
 from getopt import GetoptError, getopt
 
+
 phrase = None
 keyword = None
 
 def main(argv):
     try:
+        # Set getopt object for handling input
         opts, rems = getopt(argv,"p:k:",["phrase=","keyword="])
     except GetoptError:
+        # Only happen when don't obey
         print("Undefined operations")
         sys.exit(2)
 
@@ -21,10 +24,12 @@ def main(argv):
             global keyword
             keyword = arg
         else:
+            # Only happen when don't obey
             print("Undefined operations")
             sys.exit(2)
     
     try:
+        # Execute string compare
         if uscc.utf_contain(phrase,keyword):
             print("contains!")
             sys.exit(0)
@@ -32,6 +37,7 @@ def main(argv):
             print("not contains!")
             sys.exit(1)
     except IndexError:
+        # When using invalid compare method
         print("Invalid compare")
         sys.exit(2)
 
