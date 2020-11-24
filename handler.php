@@ -17,7 +17,8 @@
             echo("This phrase does not contain keyword");
             break;
         default:
-            echo("No doubt that you inputed invalid data here:\n".$CONSOLE_LOG);
+            echo("No doubt that you inputed invalid data here:\n");
+            var_dump($CONSOLE_LOG);
             break;
     }
 ?>
